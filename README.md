@@ -2,6 +2,12 @@
 
 Small internal tool to track patient visits by clinicians.
 
+## Screenshots
+
+![Visits list](</docs/Screenshot 2026-03-18 at 3.53.24 PM.png>)
+![New visit form](</docs/Screenshot 2026-03-18 at 3.53.31 PM.png>)
+![Visit details](</docs/Screenshot 2026-03-18 at 3.53.37 PM.png>)
+
 ## Project Structure
 
 - `client/` React + Vite UI
@@ -20,7 +26,14 @@ This installs both `client/` and `server/` dependencies.
 
 ### 2) Configure environment
 
-Create a `server/.env` file:
+Copy the example env files so the app can run locally:
+
+```bash
+cp server/.env.example server/.env
+cp client/.env.example client/.env
+```
+
+Update `server/.env` with your database connection:
 
 ```bash
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DB_NAME?schema=public"
