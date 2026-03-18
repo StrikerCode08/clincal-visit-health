@@ -25,7 +25,7 @@ export default function Patients() {
 
   useEffect(() => {
     load();
-  }, []);
+  });
 
   const formik = useFormik({
     initialValues: { name: "", email: "", phone: "" },
@@ -40,7 +40,7 @@ export default function Patients() {
       } finally {
         helpers.setSubmitting(false);
       }
-    }
+    },
   });
 
   return (
@@ -60,7 +60,10 @@ export default function Patients() {
           <h2 className="text-lg font-semibold text-slate-900">Add Patient</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
             <div className="space-y-1">
-              <label className="text-sm font-medium text-slate-700" htmlFor="patient-name">
+              <label
+                className="text-sm font-medium text-slate-700"
+                htmlFor="patient-name"
+              >
                 Name
               </label>
               <input
@@ -73,7 +76,10 @@ export default function Patients() {
               />
             </div>
             <div className="space-y-1">
-              <label className="text-sm font-medium text-slate-700" htmlFor="patient-email">
+              <label
+                className="text-sm font-medium text-slate-700"
+                htmlFor="patient-email"
+              >
                 Email
               </label>
               <input
@@ -86,7 +92,10 @@ export default function Patients() {
               />
             </div>
             <div className="space-y-1">
-              <label className="text-sm font-medium text-slate-700" htmlFor="patient-phone">
+              <label
+                className="text-sm font-medium text-slate-700"
+                htmlFor="patient-phone"
+              >
                 Phone
               </label>
               <input

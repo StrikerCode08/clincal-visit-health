@@ -31,7 +31,7 @@ export default function NewVisit() {
       }
     };
     load();
-  }, []);
+  }, [clearGlobalError, setGlobalError]);
 
   const formik = useFormik({
     initialValues: {
@@ -39,16 +39,19 @@ export default function NewVisit() {
       patientId: "",
       datePreset: "today",
       customDate: "",
-      notes: ""
+      notes: "",
     },
     onSubmit: async (values, helpers) => {
       try {
-        const visitedAt = resolveVisitedAt(values.datePreset, values.customDate);
+        const visitedAt = resolveVisitedAt(
+          values.datePreset,
+          values.customDate,
+        );
         await api.post("/api/visits", {
           clinicianId: values.clinicianId,
           patientId: values.patientId,
           visitedAt: visitedAt ? visitedAt.toISOString() : undefined,
-          notes: values.notes || undefined
+          notes: values.notes || undefined,
         });
         clearGlobalError();
         helpers.resetForm();
@@ -58,7 +61,7 @@ export default function NewVisit() {
       } finally {
         helpers.setSubmitting(false);
       }
-    }
+    },
   });
 
   return (
@@ -78,7 +81,10 @@ export default function NewVisit() {
           <h2 className="text-lg font-semibold text-slate-900">Create Visit</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <div className="space-y-1">
-              <label className="text-sm font-medium text-slate-700" htmlFor="visit-clinician">
+              <label
+                className="text-sm font-medium text-slate-700"
+                htmlFor="visit-clinician"
+              >
                 Clinician
               </label>
               <select
@@ -101,7 +107,10 @@ export default function NewVisit() {
             </div>
 
             <div className="space-y-1">
-              <label className="text-sm font-medium text-slate-700" htmlFor="visit-patient">
+              <label
+                className="text-sm font-medium text-slate-700"
+                htmlFor="visit-patient"
+              >
                 Patient
               </label>
               <select
@@ -124,7 +133,10 @@ export default function NewVisit() {
             </div>
 
             <div className="space-y-1">
-              <label className="text-sm font-medium text-slate-700" htmlFor="visit-date-preset">
+              <label
+                className="text-sm font-medium text-slate-700"
+                htmlFor="visit-date-preset"
+              >
                 Visit Date
               </label>
               <select
@@ -143,7 +155,10 @@ export default function NewVisit() {
             </div>
 
             <div className="space-y-1">
-              <label className="text-sm font-medium text-slate-700" htmlFor="visit-custom-date">
+              <label
+                className="text-sm font-medium text-slate-700"
+                htmlFor="visit-custom-date"
+              >
                 Custom Date
               </label>
               <input
@@ -158,7 +173,10 @@ export default function NewVisit() {
             </div>
 
             <div className="space-y-1 sm:col-span-2">
-              <label className="text-sm font-medium text-slate-700" htmlFor="visit-notes">
+              <label
+                className="text-sm font-medium text-slate-700"
+                htmlFor="visit-notes"
+              >
                 Notes
               </label>
               <input
