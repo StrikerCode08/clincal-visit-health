@@ -25,7 +25,7 @@ export default function Patients() {
 
   useEffect(() => {
     load();
-  });
+  }, []);
 
   const formik = useFormik({
     initialValues: { name: "", email: "", phone: "" },

@@ -25,7 +25,7 @@ export default function Clinicians() {
 
   useEffect(() => {
     load();
-  });
+  }, []);
 
   const formik = useFormik({
     initialValues: { name: "", email: "", specialty: "" },

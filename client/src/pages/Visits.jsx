@@ -24,7 +24,7 @@ export default function Visits() {
 
   useEffect(() => {
     load();
-  });
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50 px-6 py-10">
