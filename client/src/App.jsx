@@ -6,18 +6,22 @@ import NewVisit from "./pages/NewVisit.jsx";
 import Patients from "./pages/Patients.jsx";
 import VisitHistory from "./pages/VisitHistory.jsx";
 import Visits from "./pages/Visits.jsx";
+import GlobalErrorBanner from "./components/GlobalErrorBanner.jsx";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/clinicians" element={<Clinicians />} />
-      <Route path="/patients" element={<Patients />} />
-      <Route path="/visits" element={<Visits />} />
-      <Route path="/visits/new" element={<NewVisit />} />
-      <Route path="/visits/history" element={<VisitHistory />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+    <>
+      <GlobalErrorBanner />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/clinicians" element={<Clinicians />} />
+        <Route path="/patients" element={<Patients />} />
+        <Route path="/visits" element={<Visits />} />
+        <Route path="/visits/new" element={<NewVisit />} />
+        <Route path="/visits/history" element={<VisitHistory />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
   );
 }
 
