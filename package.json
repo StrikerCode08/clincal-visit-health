@@ -1,0 +1,13 @@
+{
+  "name": "clincs-appointment-tracker",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
+    "install:all": "npm install --prefix client && npm install --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
